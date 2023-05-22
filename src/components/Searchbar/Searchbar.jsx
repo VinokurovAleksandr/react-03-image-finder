@@ -8,26 +8,26 @@ import style from './Searchbar.module.css';
 
 export class Searchbar extends Component {
     state = {
-    hits: '',
+    hitsName: '',
     // loading: true,
 
   };
 
   hendleChange = event => {
-    this.setState({ hits: event.currentTarget.value.toLowerCase() })
+    this.setState({ hitsName: event.currentTarget.value.toLowerCase() })
   };
 
   hendleSubmit = e => {
     e.preventDefault();
 
-    if (this.state.hits.trim() === '') {
+    if (this.state.hitsName.trim() === '') {
       toast.error("Введіть пошуковий запит");
       return;
     }
 
-    this.props.onSubmit(this.state.hits);
+    this.props.onSubmit(this.state.hitsName);
 
-    this.setState({ hits: '' })
+    this.setState({ hitsName: '' })
   };
 
   //  componentDidMount() { 
@@ -61,6 +61,7 @@ return (
       autoFocus
         placeholder="Search images and photos"
         onChange={this.hendleChange}
+        value={this.state.hitsName}
     />
     </form>
   </header> 

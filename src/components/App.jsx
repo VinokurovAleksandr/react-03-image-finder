@@ -10,21 +10,22 @@ import { ImageGallery } from "./ImageGallery/ImageGallery";
 
 export class App extends Component {
   state = {
-    hits: '',
+    hitsName: '',
 }
 
-  handelFormSubmit = hits => { 
-    this.setState({hits})
+  handelFormSubmit = hitsName => { 
+    this.setState({hitsName})
     
   }
+
   render() {
     return (
       <div>
         <Searchbar onSubmit={this.handelFormSubmit} />
-        <ToastContainer autoClose={3000} />
-        <ImageGallery hits={this.state.hits}>
-          {/* <ImageGalleryItem /> */}
-        </ImageGallery>
+        <ToastContainer autoClose={2000} />
+        <ImageGallery hitsName={this.state.hitsName}/>
+          
+       
       </div>
     
     )
