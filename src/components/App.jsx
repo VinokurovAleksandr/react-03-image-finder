@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import { ToastContainer } from 'react-toastify';
-// import appStyle from "./app.module.css";
+import s from "./app.module.css";
 
 // import style from './Searchbar/Searchbar.module.css';
 
@@ -20,7 +20,7 @@ export class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className={s.App}>
         <Searchbar onSubmit={this.handelFormSubmit} />
         <ToastContainer autoClose={2000} />
         <ImageGallery searchText={this.state.searchText}/>

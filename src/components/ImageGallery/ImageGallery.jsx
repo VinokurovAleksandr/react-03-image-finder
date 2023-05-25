@@ -1,5 +1,5 @@
 import { Component } from 'react';
-// import style from './style.module.css';
+import style from './style.module.css';
 import {fetchQuery} from '../Api/Api';
 import { ImageGalleryItem } from "../ImageGalleryItem/ImageGalleryItem";
 
@@ -49,7 +49,7 @@ export class ImageGallery extends Component {
     render() {
         return (
 
-            <ul className="gallery">
+            <ul className={style.ImageGallery}>
                 {this.state.images && this.state.images.map(image => {
                     return (
                         <ImageGalleryItem
