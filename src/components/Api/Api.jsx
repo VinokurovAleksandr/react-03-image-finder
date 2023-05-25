@@ -1,16 +1,21 @@
 const BASE_URL = 'https://pixabay.com/api/';
-const KEY = 'key=31471213-f4e1fbc14dde5738e14f2abfa';
+const API_KEY = '31471213-f4e1fbc14dde5738e14f2abfa';
 
 
-function fetchQuery (searchQuery, page) {
-    const url = `${BASE_URL}?q=${searchQuery}
-    &${page}&${KEY}
-    &image_type=photo&orientation=horizontal&per_page=12`;
-    return fetch(url).then(r => r.json()).then(console.log)
+export const fetchQuery = (searchText) => {
+    return fetch(
+        `${BASE_URL}?q=${searchText}&page=1&key=${API_KEY}&image_type=photo&orientation=horizontal&per_page=12`)
+        
 };
 
-const api = { fetchQuery };
+// const BASE_URL = 'https://pixabay.com/api/';
+// const API_KEY = '31471213-f4e1fbc14dde5738e14f2abfa';
 
-export default api;
+// export const fetchQuery = (searchText) => {
+//   return fetch(
+//     `${BASE_URL}?q=${searchText}&page=1&key=${API_KEY}&image_type=photo&orientation=horizontal&per_page=12`
+//   )
+// };
+
 
 

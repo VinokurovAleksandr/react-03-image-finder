@@ -10,11 +10,11 @@ import { ImageGallery } from "./ImageGallery/ImageGallery";
 
 export class App extends Component {
   state = {
-    hitsName: '',
+    searchText: '',
 }
 
-  handelFormSubmit = hitsName => { 
-    this.setState({hitsName})
+  handelFormSubmit = searchText => { 
+    this.setState({searchText})
     
   }
 
@@ -23,7 +23,7 @@ export class App extends Component {
       <div>
         <Searchbar onSubmit={this.handelFormSubmit} />
         <ToastContainer autoClose={2000} />
-        <ImageGallery hitsName={this.state.hitsName}/>
+        <ImageGallery searchText={this.state.searchText}/>
           
        
       </div>

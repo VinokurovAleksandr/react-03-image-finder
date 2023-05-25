@@ -8,36 +8,28 @@ import style from './Searchbar.module.css';
 
 export class Searchbar extends Component {
     state = {
-    hitsName: '',
+    value: '',
     // loading: true,
 
   };
 
   hendleChange = event => {
-    this.setState({ hitsName: event.currentTarget.value.toLowerCase() })
+    this.setState({ value: event.currentTarget.value.toLowerCase() })
   };
 
   hendleSubmit = e => {
     e.preventDefault();
 
-    if (this.state.hitsName.trim() === '') {
+    if (this.state.value.trim() === '') {
       toast.error("Введіть пошуковий запит");
       return;
     }
 
-    this.props.onSubmit(this.state.hitsName);
+    this.props.onSubmit(this.state.value);
 
-    this.setState({ hitsName: '' })
+    this.setState({ value: '' })
   };
 
-  //  componentDidMount() { 
-  //   this.setState({loading:true})
-
-  //   fetch('https://pixabay.com/api/?q=cat&page=1&key=31471213-f4e1fbc14dde5738e14f2abfa&image_type=photo&orientation=horizontal&per_page=12')
-  //     .then(res => res.json())
-  //     .then(hits => this.setState({ hits }))
-  // }
-  
   
   render() { 
 return (
@@ -61,11 +53,10 @@ return (
       autoFocus
         placeholder="Search images and photos"
         onChange={this.hendleChange}
-        value={this.state.hitsName}
+        value={this.state.value}
     />
     </form>
   </header> 
     )
   }
-    
 };
