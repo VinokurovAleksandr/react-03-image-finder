@@ -8,6 +8,7 @@ export const ImageGalleryItem = ({ itemList }) => {
          <li className= {s.ImageGalleryItem}>
             <img className={s.ImageGalleryItem_image} src={webformatURL} alt={tags} />  
         </li>
+        
     )
 };
 
