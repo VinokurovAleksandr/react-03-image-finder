@@ -1,5 +1,5 @@
 import { RotatingLines } from 'react-loader-spinner';
-
+import PropTypes from 'prop-types';
 
 export function Loader (visible) {
     return (
@@ -10,6 +10,10 @@ export function Loader (visible) {
             width="96"
             visible={visible}
         />
+         
     )
-    
-}
+};
+
+Loader.popTypes = {
+    visible: PropTypes.bool.isRequired,
+};

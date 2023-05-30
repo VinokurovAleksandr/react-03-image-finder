@@ -1,10 +1,13 @@
+// import PropTypes from 'prop-types';
+
 import { Component } from 'react';
 import style from './style.module.css';
 
 import {fetchQuery} from '../Api/Api';
 import { ImageGalleryItem } from "../ImageGalleryItem/ImageGalleryItem";
 import { Btn } from '../Button/Button';
-import {Loader} from '../Loader/Loader';
+import { Loader } from '../Loader/Loader';
+import {Modal} from '../Modal/Modal'
 
 
 
@@ -15,7 +18,10 @@ export class ImageGallery extends Component {
         error: null,
         isLoading: false,
         page: 1,
+        showModal: false,
     };
+
+   
 
     componentDidUpdate(prevProps, prevState) {
         const { page } = this.state;
@@ -41,22 +47,36 @@ export class ImageGallery extends Component {
         }
     }
 
-    handleClickBtn = () => {
-        this.setState(prevState => ({ page: prevState.page + 1 }))
+   
 
-    }
+    toggleModal = () => {
+        this.setState(({ showModal }) => ({
+            showModal: !showModal,
+        }));
+    };
+
+    onClickImgGallery = showModal => {
+        this.setState({ showModal });
+    };
+
+    handleClickBtn = () => {
+        this.setState(prevState => ({ page: prevState.page + 1 }));
+
+    };
+
 
     render() {
-        const { images, isLoading } = this.state;
+        const { images, isLoading, showModal } = this.state;
         
         return (
             
             <>
-                {isLoading && <Loader visible={ true } />}
+                {isLoading && <Loader visible={true} />}
                 <ul className={style.ImageGallery}>
                     {images && images.map(image => {
                         return (
                             <ImageGalleryItem
+                                imgClick={this.onClickImgGallery}
                                 key={image.id}
                                 itemList={image} />
                         );
@@ -65,6 +85,9 @@ export class ImageGallery extends Component {
                      
                 </ul>
                {images.length > 0 && <Btn onClickBtn={this.handleClickBtn}></Btn>}
+                {showModal &&
+                    (<Modal onClose={this.toggleModal} showModal={showModal}>
+                </Modal>)}
                 
             </>
             
