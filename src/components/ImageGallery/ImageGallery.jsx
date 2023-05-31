@@ -38,10 +38,10 @@ export class ImageGallery extends Component {
                 .then(data => this.setState(prevState => ({
                     images: [...prevState.images, ...data.hits]
                 })))
-                        .catch(error => {
-                                this.setState({ error });
-                            })
-                        .finally(() => this.setState({ isLoading: false }))
+                .catch(error => {
+                     this.setState({ error });
+                 })
+                .finally(() => this.setState({ isLoading: false }))
                 
                 
         }

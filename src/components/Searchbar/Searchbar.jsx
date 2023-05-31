@@ -30,6 +30,9 @@ export class Searchbar extends Component {
     this.setState({ value: '' })
   };
 
+    // if (searchText !== this.props.value) {
+    //   this.setState({searchText, page:1, images: []})
+    // }
   
   render() { 
 return (

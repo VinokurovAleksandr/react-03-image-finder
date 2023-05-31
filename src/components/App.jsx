@@ -14,6 +14,7 @@ export class App extends Component {
 }
 
   handelFormSubmit = searchText => { 
+  
     this.setState({searchText})
     
   }
