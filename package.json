@@ -1,8 +1,8 @@
 {
-  "name": "react-03-image-finder-refactoring",
+  "name": "react-03-image-finder",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://VinokurovAleksandr.github.io/react-03-image-finder-refactoring/",
+  "homepage": "https://VinokurovAleksandr.github.io/react-03-image-finder/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",
