@@ -53,8 +53,12 @@ export class Modal extends Component {
                 </div>
             </div>
         )
-}}
+    }
+};
   
+
+
+    
 
 
     
